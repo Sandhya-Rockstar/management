@@ -16,9 +16,16 @@ public class StudentService {
 
         return repo.findAll();
     }
-    public Student addStudent(Student st){
-
-        return repo.save(st);
+    public String addStudent(Student st){
+        String s =  String.valueOf(st.getNumber());
+           int length = s.length();
+        if(length!=10){
+            return "number should be 10 digits";
+        }
+        else {
+            repo.save(st);
+            return "Data added";
+        }
     }
     public List<Student> addStud(List<Student> stud){
         return repo.saveAll(stud);
