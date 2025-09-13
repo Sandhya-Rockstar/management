@@ -3,12 +3,14 @@ package com.example.management.controller;
 import com.example.management.model.Student;
 import com.example.management.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class StudentController {
+
     @Autowired
     StudentService ser;
 
@@ -18,8 +20,10 @@ public class StudentController {
 
     }
     @PostMapping("/res")
-    public Student addStud(@RequestBody Student st){
-        return ser.addStudent(st);
+    public String addStud(@RequestBody Student st){
+        System.out.println(st.getName()+" :"+st.getNumber());
+         return ser.addStudent(st);
+
     }
 
     @PostMapping("/bulk")
