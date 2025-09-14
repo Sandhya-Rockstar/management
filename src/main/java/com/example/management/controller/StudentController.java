@@ -40,5 +40,6 @@ public class StudentController {
     public List<Student> getNumber(@PathVariable long n){
         return ser.getstud(n);
 
+
 }
 }
