@@ -30,6 +30,6 @@ public class StudentController {
 @DeleteMapping("/{id}")
     public String deleteStud(@PathVariable int id){
         ser.deleteStud(id);
-        return "record deleted";
+        return "record deleted"
 }
 }
