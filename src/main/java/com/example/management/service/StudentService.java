@@ -4,6 +4,7 @@ import com.example.management.model.Student;
 import com.example.management.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -33,5 +34,9 @@ public class StudentService {
    public void deleteStud(int id){
 
        repo.deleteById(id);
+   }
+   @GetMapping
+    public List<Student> getstud(long n){
+        return repo.findByNumber(n);
    }
 }

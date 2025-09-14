@@ -12,7 +12,7 @@ public class Student {
 
     private int id;
     private String name;
-    private Long number;
+    private long number;
 
     public int getId() {
         return id;
@@ -22,7 +22,7 @@ public class Student {
         return name;
     }
 
-    public Long getNumber() {
+    public long getNumber() {
         return number;
     }
     public void setId(int id){
@@ -32,11 +32,11 @@ public class Student {
         this.name = name;
     }
 
-    public void setNumber(Long number) {
+    public void setNumber(long number) {
         this.number = number;
     }
 
-    public Student(int id, String name, Long number) {
+    public Student(int id, String name, long number) {
         this.id = id;
         this.name = name;
         this.number = number;

@@ -31,9 +31,13 @@ public class StudentController {
         return ser.addStud(stud);
 
     }
-@DeleteMapping("/{id}")
+    @DeleteMapping("/{id}")
     public String deleteStud(@PathVariable int id){
         ser.deleteStud(id);
         return "record deleted";
+}
+    @GetMapping("/stud/{n}")
+    public List<Student> getNumber(@PathVariable long n){
+        return ser.getstud(n);
 }
 }
