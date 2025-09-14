@@ -11,7 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out source code...'
-                git branch: 'main', url: 'https://github.com/sundaram4009/jenkinstesting.git'
+                git branch: 'main', url: 'https://github.com/Sandhya-Rockstar/management.git'
             }
         }
 
