@@ -4,6 +4,7 @@ import com.example.management.model.Student;
 import com.example.management.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -16,9 +17,16 @@ public class StudentService {
 
         return repo.findAll();
     }
-    public Student addStudent(Student st){
-
-        return repo.save(st);
+    public String addStudent(Student st){
+        String s =  String.valueOf(st.getNumber());
+           int length = s.length();
+        if(length!=10){
+            return "number should be 10 digits";
+        }
+        else {
+            repo.save(st);
+            return "Data added";
+        }
     }
     public List<Student> addStud(List<Student> stud){
         return repo.saveAll(stud);
@@ -26,5 +34,9 @@ public class StudentService {
    public void deleteStud(int id){
 
        repo.deleteById(id);
+   }
+   @GetMapping
+    public List<Student> getstud(long n){
+        return repo.findByNumber(n);
    }
 }
