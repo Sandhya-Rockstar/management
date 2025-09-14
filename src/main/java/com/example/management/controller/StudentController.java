@@ -39,7 +39,5 @@ public class StudentController {
     @GetMapping("/stud/{n}")
     public List<Student> getNumber(@PathVariable long n){
         return ser.getstud(n);
-
-
 }
 }
