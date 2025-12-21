@@ -1,11 +1,11 @@
 package com.example.management.service;
 
+import com.example.management.exceptionhandler.NumberNotTenDigitException;
 import com.example.management.model.Student;
 import com.example.management.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import java.util.List;
 
 @Service
@@ -17,22 +17,25 @@ public class StudentService {
 
         return repo.findAll();
     }
-    public String addStudent(Student st){
+   /* public String addStudent(Student st){
+        if (st == null) {
+            throw new IllegalArgumentException("Student cannot be null");
+        }
         String s =  String.valueOf(st.getNumber());
            int length = s.length();
         if(length!=10){
-            return "number should be 10 digits";
+
+            throw new NumberNotTenDigitException();
         }
         else {
             repo.save(st);
             return "Data added";
         }
-    }
-    public List<Student> addStud(List<Student> stud){
-        return repo.saveAll(stud);
+    }*/
+   public void addStud(List<Student> stud){
+         repo.saveAll(stud);
     }
    public void deleteStud(int id){
-
        repo.deleteById(id);
    }
    @GetMapping

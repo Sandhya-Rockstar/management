@@ -4,44 +4,33 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private int id;
+    @NotBlank
     private String name;
     private long number;
+    @CreationTimestamp
+    private LocalDateTime createdOn;
 
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public long getNumber() {
-        return number;
-    }
-    public void setId(int id){
-        this.id =id;
-    }
     public void setName(String name) {
         this.name = name;
     }
 
     public void setNumber(long number) {
         this.number = number;
-    }
-
-    public Student(int id, String name, long number) {
-        this.id = id;
-        this.name = name;
-        this.number = number;
-    }
-
-    public Student( ) {
     }
 }

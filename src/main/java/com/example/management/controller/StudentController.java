@@ -1,5 +1,6 @@
 package com.example.management.controller;
 
+import com.example.management.model.EagerBean;
 import com.example.management.model.Student;
 import com.example.management.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,25 +20,32 @@ public class StudentController {
         return ser.getAllStudent();
 
     }
-    @PostMapping("/res")
+   /* @PostMapping("/res")
     public String addStud(@RequestBody Student st){
-        System.out.println(st.getName()+" :"+st.getNumber());
          return ser.addStudent(st);
-
-    }
+ mern
+    }*/
 
     @PostMapping("/bulk")
-    public List<Student> addStud(@RequestBody List<Student> stud) {
-        return ser.addStud(stud);
+    public String addStud(@RequestBody List<Student> stud) {
+         ser.addStud(stud);
+         return "Data has been added successfully";
 
     }
     @DeleteMapping("/{id}")
     public String deleteStud(@PathVariable int id){
         ser.deleteStud(id);
-        return "record deleted"
+        return "record deleted";
 }
     @GetMapping("/stud/{n}")
-    public List<Student> getNumber(@PathVariable long n){
+    public List<Student> getNumber(@PathVariable long n) {
         return ser.getstud(n);
-}
+    }
+        @GetMapping("/aisehi")
+
+                public String getValue(){
+            return "this is for lazy";
+
+        }
+
 }
